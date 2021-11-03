@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web sukudo</title>
+    <link rel="stylesheet" text="text/css" href="sukudo_1.css">
+    
+</head>
+<body>
+    <br><br>
+    <button type="reset" onclick="startGame()"  name="startGame"  style="margin-left: 35%;border-radius: 12px;size: 50px;">Start Game</button>
+    <button type="reset" onclick="solveGame()"  name="solveGame"  style="margin-left: 5%;border-radius: 12px;size: 50px;">Solve Game</button>
+    <br><br>
+    <div class="sudoku" style="color: rgb(138, 108, 70); z-index: 0px;">
+        <table id="SodukuBoard" style="margin-left: 30%;">
+            <tbody><tr>
+                <td>
+                     <table >
+            <tbody><tr>
+                <td class="sudokuCell">
+                    <div class="staticValue" id="cell00"><span type="number">3</span></div>   
+                </td>
+               <td class="sudokuCell">
+                    <div class="editValue" id="cell01"><input type="number" min="1" max="9" step="1"></div>
+                </td>
+                 <td class="sudokuCell">
+                   <div class="staticValue" id="cell02"><span>6</span></div> 
+                </td>
+            </tr>
+             <tr>
+                <td class="sudokuCell">
+                    <div class="staticValue" id="cell10"><span>5</span></div>
+                </td>
+                <td class="sudokuCell">
+                    <div class="staticValue" id="cell11"><span>2</span></div>
+                </td>
+                <td class="sudokuCell">
+                     <div class="editValue" id="cell12"><input type="number" min="1" max="9" step="1"></div>
+                </td>
+            </tr> 
+            <tr>
+                <td class="sudokuCell">
+                    <div class="editableValue" id="cell20">
+                         <input type="number" min="1" max="9" step="1">
+                    </div>
+                </td>
+                <td class="sudokuCell">
+                    <div class="staticValue" id="cell21">
+                        <span>3</span>
+                    </div> 
+                </td>
+                <td class="sudokuCell">
+                     <div class="editableValue" id="cell22">
+                         <input type="number" min="1" max="9" step="1">
+                    </div>
+                </td>
+            </tr>
+        </tbody></table>
+                 </td>
+                <td>
+                     <table>
+            <tbody><tr>
+                <td class="sudokuCell">
+                    <div class="staticValue" id="cell03"><span>5</span></div>   
+                </td>
+                <td class="sudokuCell">
+                    <div class="editValue" id="cell04"><input type="number" min="1" max="9" step="1"></div>
+                </td>
+                <td class="sudokuCell">
+                   <div class="staticValue" id="cell05"><span >8</span></div> 
+                </td>
+            </tr>
+            <tr>
+                <td class="sudokuCell">
+                    <div class="editValue" id="cell13"><input type="number" min="1" max="9" step="1"></div>
+                </td>
+                <td class="sudokuCell">
+                    <div class="editValue" id="cell14"><input type="number" min="1" max="9" step="1"></div>
+                </td>
+                <td class="sudokuCell">
+                     <div class="editableValue" id="cell15">
+                         <input type="number" min="1" max="9" step="1">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="sudokuCell">
+                    <div class="editableValue" id="cell23">
+						<input type="number" min="1" max="9" step="1">                    
+					</div>
+                </td>
+                <td class="sudokuCell">
+                    <div class="staticValue" id="cell24">
+                        <span>3</span>
+                    </div> 
+                </td>
+                <td class="sudokuCell">
+                     <div class="editableValue" id="cell25">
+                         <input type="number" min="1" max="9" step="1">
+                    </div>
+                </td>
+            </tr>
+        </tbody></table>
+                </td>
+                <td>
+                     <table>
+            <tbody><tr>
+                <td class="sudokuCell">
+                    <div class="staticValue" id="cell06"><span>4</span></div>   
+                </td>
+                <td class="sudokuCell">
+                    <div class="editValue" id="cell07"><input type="number" min="1" max="9" step="1"></div>
+                </td>
+                <td class="sudokuCell">
+                   <div class="editValue" id="cell08"><input type="number" min="1" max="9" step="1"></div> 
+                </td>
+            </tr>
+            <tr>
+                <td class="sudokuCell">
+                    <div class="editableValue" id="cell16">
+                         <input type="number" min="1" max="9" step="1">
+                    </div>
+                </td>
+                <td class="sudokuCell">
+                    <div class="editableValue" id="cell17">
+                         <input type="number" min="1" max="9" step="1">
+                    </div>
+                </td>
+                <td class="sudokuCell">
+                     <div class="editableValue" id="cell18">
+                         <input type="number" min="1" max="9" step="1">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="sudokuCell">
+                    <div class="editableValue" id="cell26">
+                         <input type="number" min="1" max="9" step="1">
+                    </div>
+                </td>
+                <td class="sudokuCell">
+                    <div class="staticValue" id="cell27">
+                        <span>3</span>
+                    </div> 
+                </td>
+                <td class="sudokuCell">
+                     <div class="editableValue" id="cell28">
+                         <input type="number" min="1" max="9" step="1">
+                    </div>
+                </td>
+            </tr>
+        </tbody></table>
+                </td>
+            </tr>
+             <tr>
+                <td>
+                     <table>
+            <tbody><tr>
+                <td class="sudokuCell">
+                    <div class="staticValue" id="cell30">
+                        <span>1</span>
+                    </div>   
+                </td>
+                <td class="sudokuCell">
+                    <div class="editableValue" id="cell31">
+                         <input type="number" min="1" max="9" step="1">
+                    </div>
+                </td>
+                <td class="sudokuCell">
+                   <div class="staticValue" id="cell32">
+                        <span>1</span>
+                    </div> 
+                </td>
+            </tr>
+            <tr>
+                <td class="sudokuCell">
+                    <div class="editableValue" id="cell40">
+                         <input type="number" min="1" max="9" step="1">
+                    </div>
+                </td>
+                <td class="sudokuCell">
+                    <div class="editableValue" id="cell41">
+                         <input type="number" min="1" max="9" step="1">
+                    </div>
+                </td>
+                <td class="sudokuCell">
+                     <div class="editableValue" id="cell42">
+                         <input type="number" min="1" max="9" step="1">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="sudokuCell">
+                    <div class="editableValue" id="cell50">
+                         <input type="number" min="1" max="9" step="1">
+                    </div>
+                </td>
+                <td class="sudokuCell">
+                    <div class="staticValue" id="cell51">
+                        <span>3</span>
+                    </div> 
+                </td>
+                <td class="sudokuCell">
+                     <div class="editableValue" id="cell52">
+                         <input type="number" min="1" max="9" step="1">
+                    </div>
+                </td>
+            </tr>
+        </tbody></table>
+                </td>
+                <td>
+                     <table>
+            <tbody><tr>
+                <td class="sudokuCell">
+                    <div class="staticValue" id="cell33">
+                        <span>1</span>
+                    </div>   
+                </td>
+                <td class="sudokuCell">
+                    <div class="editableValue" id="cell34">
+                         <input type="number" min="1" max="9" step="1">
+                    </div>
+                </td>
+                <td class="sudokuCell">
+                   <div class="staticValue" id="cell35">
+                        <span>1</span>
+                    </div> 
+                </td>
+            </tr>
+            <tr>
+                <td class="sudokuCell">
+                    <div class="editableValue" id="cell43">
+                         <input type="number" min="1" max="9" step="1">
+                    </div>
+                </td>
+                <td class="sudokuCell">
+                    <div class="editableValue" id="cell44">
+                         <input type="number" min="1" max="9" step="1">
+                    </div>
+                </td>
+                <td class="sudokuCell">
+                     <div class="editableValue" id="cell45">
+                         <input type="number" min="1" max="9" step="1">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="sudokuCell">
+                    <div class="editableValue" id="cell53">
+                         <input type="number" min="1" max="9" step="1">
+                    </div>
+                </td>
+                <td class="sudokuCell">
+                    <div class="staticValue" id="cell54">
+                        <span>3</span>
+                    </div> 
+                </td>
+                <td class="sudokuCell">
+                     <div class="editableValue" id="cell55">
+                         <input type="number" min="1" max="9" step="1">
+                    </div>
+                </td>
+            </tr>
+        </tbody></table>
+                </td>
+                <td>
+                    <table>
+            <tbody><tr>
+                <td class="sudokuCell">
+                    <div class="staticValue" id="cell36">
+                        <span>1</span>
+                    </div>   
+                </td>
+                <td class="sudokuCell">
+                    <div class="editableValue" id="cell37">
+                         <input type="number" min="1" max="9" step="1">
+                    </div>
+                </td>
+                <td class="sudokuCell">
+                   <div class="staticValue" id="cell38">
+                        <span>1</span>
+                    </div> 
+                </td>
+            </tr>
+            <tr>
+                <td class="sudokuCell">
+                    <div class="editableValue" id="cell46">
+                         <input type="number" min="1" max="9" step="1">
+                    </div>
+                </td>
+                <td class="sudokuCell">
+                    <div class="editableValue" id="cell47">
+                         <input type="number" min="1" max="9" step="1">
+                    </div>
+                </td>
+                <td class="sudokuCell">
+                     <div class="editableValue" id="cell48">
+                         <input type="number" min="1" max="9" step="1">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="sudokuCell">
+                    <div class="editableValue" id="cell56">
+                         <input type="number" min="1" max="9" step="1">
+                    </div>
+                </td>
+                <td class="sudokuCell">
+                    <div class="staticValue" id="cell57">
+                        <span>3</span>
+                    </div> 
+                </td>
+                <td class="sudokuCell">
+                     <div class="editableValue" id="cell58">
+                         <input type="number" min="1" max="9" step="1">
+                    </div>
+                </td>
+            </tr>
+        </tbody></table>
+                </td>
+            </tr>
+             <tr>
+                <td>
+                     <table>
+            <tbody><tr>
+                <td class="sudokuCell">
+                    <div class="staticValue" id="cell60">
+                        <span>1</span>
+                    </div>   
+                </td>
+                <td class="sudokuCell">
+                    <div class="editableValue" id="cell61">
+                         <input type="number" min="1" max="9" step="1">
+                    </div>
+                </td>
+                <td class="sudokuCell">
+                   <div class="staticValue" id="cell62">
+                        <span>1</span>
+                    </div> 
+                </td>
+            </tr>
+            <tr>
+                <td class="sudokuCell">
+                    <div class="editableValue" id="cell70">
+                         <input type="number" min="1" max="9" step="1">
+                    </div>
+                </td>
+                <td class="sudokuCell">
+                    <div class="editableValue" id="cell71">
+                         <input type="number" min="1" max="9" step="1">
+                    </div>
+                </td>
+                <td class="sudokuCell">
+                     <div class="editableValue" id="cell72">
+                         <input type="number" min="1" max="9" step="1">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="sudokuCell">
+                    <div class="editableValue" id="cell80">
+                         <input type="number" min="1" max="9" step="1">
+                    </div>
+                </td>
+                <td class="sudokuCell">
+                    <div class="staticValue" id="cell81">
+                        <span>3</span>
+                    </div> 
+                </td>
+                <td class="sudokuCell">
+                     <div class="editableValue" id="cell82">
+                         <input type="number" min="1" max="9" step="1">
+                    </div>
+                </td>
+            </tr>
+        </tbody></table>
+                </td>
+                <td>
+                     <table>
+            <tbody><tr>
+                <td class="sudokuCell">
+                    <div class="staticValue" id="cell63">
+                        <span>1</span>
+                    </div>   
+                </td>
+                <td class="sudokuCell">
+                    <div class="editableValue" id="cell64">
+                         <input type="number" min="1" max="9" step="1">
+                    </div>
+                </td>
+                <td class="sudokuCell">
+                   <div class="staticValue" id="cell65">
+                        <span>1</span>
+                    </div> 
+                </td>
+            </tr>
+            <tr>
+                <td class="sudokuCell">
+                    <div class="editableValue" id="cell73">
+                         <input type="number" min="1" max="9" step="1">
+                    </div>
+                </td>
+                <td class="sudokuCell">
+                    <div class="editableValue" id="cell74">
+                         <input type="number" min="1" max="9" step="1">
+                    </div>
+                </td>
+                <td class="sudokuCell">
+                     <div class="editableValue" id="cell75">
+                         <input type="number" min="1" max="9" step="1">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="sudokuCell">
+                    <div class="editableValue" id="cell83">
+                         <input type="number" min="1" max="9" step="1">
+                    </div>
+                </td>
+                <td class="sudokuCell">
+                    <div class="staticValue" id="cell84">
+                        <span>3</span>
+                    </div> 
+                </td>
+                <td class="sudokuCell">
+                     <div class="editableValue" id="cell85">
+                         <input type="number" min="1" max="9" step="1">
+                    </div>
+                </td>
+            </tr>
+        </tbody></table>
+                </td>
+                <td>
+                     <table>
+            <tbody><tr>
+                <td class="sudokuCell">
+                    <div class="staticValue" id="cell66">
+                        <span>1</span>
+                    </div>   
+                </td>
+                <td class="sudokuCell">
+                    <div class="editableValue" id="cell67">
+                         <input type="number" min="1" max="9" step="1">
+                    </div>
+                </td>
+                <td class="sudokuCell">
+                   <div class="staticValue" id="cell68">
+                        <span>1</span>
+                    </div> 
+                </td>
+            </tr>
+            <tr>
+                <td class="sudokuCell">
+                    <div class="editableValue" id="cell76">
+                         <input type="number" min="1" max="9" step="1">
+                    </div>
+                </td>
+                <td class="sudokuCell">
+                    <div class="editableValue" id="cell77">
+                         <input type="number" min="1" max="9" step="1">
+                    </div>
+                </td>
+                <td class="sudokuCell">
+                     <div class="editableValue" id="cell78">
+                         <input type="number" min="1" max="9" step="1">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="sudokuCell">
+                    <div class="editableValue" id="cell86">
+                         <input type="number" min="1" max="9" step="1">
+                    </div>
+                </td>
+                <td class="sudokuCell">
+                    <div class="staticValue" id="cell87">
+                        <span>3</span>
+                    </div> 
+                </td>
+                <td class="sudokuCell">
+                     <div class="editableValue" id="cell88">
+                         <input type="number" min="1" max="9" step="1">
+                    </div>
+                </td>
+            </tr>
+        </tbody></table>
+                </td>
+            </tr>
+        </tbody></table>
+      </div> 
+     
+      <script src="jquery-3.6.0.min.js" type="text/javascript"></script>
+      <script src="script.js" type="text/javascript"></script>
+
+
+</body></html>
+      
